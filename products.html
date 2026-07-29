@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aurora Bridge Services — J-1 ITP consulting products: Starter Bundle, Pro Report, Premium Journey. Choose the plan that fits your American dream.">
+  <title>Services — Aurora Bridge</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEW8C3ERGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YEW8C3ERGN');
+  </script>
+
+</head>
+<body>
+
+  <nav class="nav scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-dot"></span>
+        Aurora Bridge
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="products.html" class="active" data-i18n="nav.products">产品服务</a>
+        <a href="about.html" data-i18n="nav.about">关于</a>
+        <a href="contact.html" data-i18n="nav.contact">联系方式</a>
+        <a href="register.html" data-i18n="nav.register">报名</a>
+        <button id="nav-lang" class="nav-lang" onclick="toggleLang()">EN</button>
+        <a href="consult.html" class="nav-cta" data-i18n="nav.consult">立即咨询</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title" data-i18n="products.page.title">产品服务</h1>
+      <p class="page-hero-desc" data-i18n="products.page.subtitle">从零基础入门到全流程护航，选择最适合你的方案</p>
+    </div>
+  </section>
+
+  <!-- Product Filters -->
+  <section class="section section-light">
+    <div class="container-narrow">
+      <div class="product-filters">
+        <button class="filter-btn active" data-tier="all" data-i18n="products.filter.all">全部</button>
+        <button class="filter-btn" data-tier="starter" data-i18n="products.filter.starter">入门 Starter</button>
+        <button class="filter-btn" data-tier="pro" data-i18n="products.filter.pro">进阶 Pro</button>
+        <button class="filter-btn" data-tier="premium" data-i18n="products.filter.premium">尊享 Premium</button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container">
+      <div class="product-grid" id="product-grid"></div>
+    </div>
+  </section>
+
+  <!-- Full Comparison -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Compare Plans</div>
+        <h2 class="section-title" style="color:var(--color-white)">三档方案对比</h2>
+      </div>
+      <div class="product-tiers" id="comparison-tiers"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 data-i18n="cta.title">准备好开启你的美国之旅了吗？</h2>
+        <p>不确定哪个方案最适合你？联系 Miguel，免费帮你分析。</p>
+        <a href="consult.html" class="btn btn-primary btn-lg" data-i18n="cta.button">立即免费咨询</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Aurora Bridge</h3>
+          <p data-i18n="footer.brand.desc">连接中国与世界，搭建职业跃迁的桥梁。ICEO 官方授权国际顾问，真实美国经历，透明专业服务。</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">服务</h4>
+          <a href="product-detail.html?id=starter-bundle">Starter Bundle</a>
+          <a href="product-detail.html?id=pro-report">Pro Report</a>
+          <a href="product-detail.html?id=premium-landing">Premium</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">公司</h4>
+          <a href="about.html" data-i18n="nav.about">关于</a>
+          <a href="contact.html" data-i18n="nav.contact">联系方式</a>
+        <a href="register.html" data-i18n="nav.register">报名</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">联系</h4>
+          <a href="mailto:migueleeaurora@gmail.com">migueleeaurora@gmail.com</a>
+          <a href="tel:+8617621957321">+86 176 2195 7321</a>
+          <a href="tel:+17754606930">+1 775 460 6930</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Aurora Bridge. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render product grid
+      const grid = document.getElementById('product-grid');
+      const lang = currentLang || 'zh';
+      grid.innerHTML = products.map(p => renderProductCard(p, lang)).join('');
+
+      // Render comparison tiers
+      const comparisonContainer = document.getElementById('comparison-tiers');
+      comparisonContainer.innerHTML = products.map(p => `
+        <div class="tier-card ${p.featured ? 'featured' : ''} animate-on-scroll">
+          <span class="tier-badge ${p.tier}">${p.tier === 'starter' ? '入门 Starter' : p.tier === 'pro' ? '进阶 Pro' : '尊享 Premium'}</span>
+          <h3 class="tier-name">${p.name.zh}</h3>
+          <div class="tier-price">${p.price.zh} <span>起</span></div>
+          <div class="tier-desc">${p.description.zh}</div>
+          <ul class="tier-list">
+            ${p.includes.map(i => `<li>${i.zh}</li>`).join('')}
+          </ul>
+          <div style="padding:16px;background:rgba(201,169,110,0.05);border-radius:10px;margin-bottom:24px;font-size:0.85rem;color:var(--color-text-on-dark)">
+            <strong>交付：</strong>${p.delivery.zh}
+          </div>
+          <a href="product-detail.html?id=${p.id}" class="btn ${p.featured ? 'btn-primary' : 'btn-outline'}" style="${!p.featured ? 'color:var(--color-white);border-color:rgba(255,255,255,0.3);' : ''}">查看详情 →</a>
+        </div>
+      `).join('');
+
+      // Re-init scroll observers
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.15 });
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
