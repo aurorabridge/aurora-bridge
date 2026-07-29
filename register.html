@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your J-1 ITP application registration with Aurora Bridge. Full application form for the U.S. Intern/Trainee Program.">
+  <title>Application Registration — Aurora Bridge</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEW8C3ERGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YEW8C3ERGN');
+  </script>
+
+</head>
+<body>
+
+  <nav class="nav scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-dot"></span>
+        Aurora Bridge
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="products.html" data-i18n="nav.products">产品服务</a>
+        <a href="about.html" data-i18n="nav.about">关于</a>
+        <a href="contact.html" data-i18n="nav.contact">联系方式</a>
+        <button id="nav-lang" class="nav-lang" onclick="toggleLang()">EN</button>
+        <a href="consult.html" class="nav-cta" data-i18n="nav.consult">立即咨询</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title" data-i18n="register.page.title">正式报名</h1>
+      <p class="page-hero-desc" data-i18n="register.page.subtitle">填写完整信息，开启你的 J-1 ITP 赴美之旅</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container-narrow">
+      <div class="register-form-card animate-on-scroll">
+
+        <!-- Progress Bar -->
+        <div class="register-progress">
+          <div class="register-progress-step active" data-step="1">
+            <div class="register-progress-num">1</div>
+            <span data-i18n="register.tab1">基本信息</span>
+          </div>
+          <div class="register-progress-line"></div>
+          <div class="register-progress-step" data-step="2">
+            <div class="register-progress-num">2</div>
+            <span data-i18n="register.tab2">签证信息</span>
+          </div>
+          <div class="register-progress-line"></div>
+          <div class="register-progress-step" data-step="3">
+            <div class="register-progress-num">3</div>
+            <span data-i18n="register.tab3">教育 & 工作</span>
+          </div>
+          <div class="register-progress-line"></div>
+          <div class="register-progress-step" data-step="4">
+            <div class="register-progress-num">4</div>
+            <span data-i18n="register.tab4">英语 & 确认</span>
+          </div>
+          <div class="register-progress-line"></div>
+          <div class="register-progress-step" data-step="5">
+            <div class="register-progress-num">5</div>
+            <span data-i18n="register.tab5">附加信息</span>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form id="register-form">
+          <input type="hidden" name="form_type" value="registration">
+
+          <!-- TAB 1: Basic Info -->
+          <div class="register-tab active" data-tab="1">
+            <h3 class="register-tab-title" data-i18n="register.tab1.title">基本信息</h3>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.personal">个人信息</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.firstName">First Name（名）<span>*</span></label>
+                  <input type="text" name="firstName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.lastName">Last Name（姓）<span>*</span></label>
+                  <input type="text" name="lastName" class="form-input" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.fullName">姓名（中文）<span>*</span></label>
+                  <input type="text" name="fullName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.gender">性别 <span>*</span></label>
+                  <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="gender" value="male" required> <span data-i18n="register.gender.male">男</span></label>
+                    <label class="radio-label"><input type="radio" name="gender" value="female"> <span data-i18n="register.gender.female">女</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.age">年龄</label>
+                  <input type="number" name="age" class="form-input" min="18" max="60">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.birthDate">出生时间 <span>*</span></label>
+                  <input type="date" name="birthDate" class="form-input" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.birthPlace">出生地点（省/市）<span>*</span></label>
+                <input type="text" name="birthPlace" class="form-input" placeholder="如：河北省 邯郸市" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.height">身高（cm）</label>
+                  <input type="number" name="height" class="form-input" min="100" max="250">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.weight">体重（kg）</label>
+                  <input type="number" name="weight" class="form-input" min="30" max="200">
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.license">驾照</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="hasLicense" value="yes"> <span data-i18n="register.yes">有</span></label>
+                  <label class="radio-label"><input type="radio" name="hasLicense" value="no" checked> <span data-i18n="register.no">无</span></label>
+                </div>
+                <input type="text" name="licenseType" class="form-input" placeholder="如有，请填写类型（如：C1）" style="margin-top:8px">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.nationality">国籍 <span>*</span></label>
+                  <input type="text" name="nationality" class="form-input" value="中国" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.marital">婚姻状况 <span>*</span></label>
+                  <select name="marital" class="form-select" required>
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="single" data-i18n="register.marital.single">单身</option>
+                    <option value="married" data-i18n="register.marital.married">已婚</option>
+                    <option value="divorced" data-i18n="register.marital.divorced">离婚</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.hukou">户口所在地 <span>*</span></label>
+                <input type="text" name="hukou" class="form-input" placeholder="省 市" required>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.idCard">身份证号 <span>*</span></label>
+                <input type="text" name="idCard" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.contact">联系方式</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.mobile">手机号码 <span>*</span></label>
+                  <input type="tel" name="mobile" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.email">电子邮箱 <span>*</span></label>
+                  <input type="email" name="email" class="form-input" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.programDates">预计项目日期 <span>*</span></label>
+                <div class="form-row">
+                  <input type="month" name="startDate" class="form-input" placeholder="开始" required>
+                  <span style="align-self:center">至</span>
+                  <input type="month" name="endDate" class="form-input" placeholder="结束" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.address">家庭住址（详细到门牌号）及邮编 <span>*</span></label>
+                <input type="text" name="address" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.homePhone">家庭电话</label>
+                <input type="tel" name="homePhone" class="form-input">
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.family">家庭信息</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.parentsAlive">父母是否在世 <span>*</span></label>
+                  <select name="parentsAlive" class="form-select" required>
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="both" data-i18n="register.parentsAlive.both">均在世</option>
+                    <option value="father" data-i18n="register.parentsAlive.father">父亲去世</option>
+                    <option value="mother" data-i18n="register.parentsAlive.mother">母亲去世</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.parentsMarital">父母婚姻状态 <span>*</span></label>
+                  <select name="parentsMarital" class="form-select" required>
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="normal" data-i18n="register.parentsMarital.normal">正常</option>
+                    <option value="divorced" data-i18n="register.parentsMarital.divorced">离婚</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.fatherInfo">父亲姓名和手机号</label>
+                  <input type="text" name="fatherInfo" class="form-input" placeholder="姓名 手机号">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.motherInfo">母亲姓名和手机号</label>
+                  <input type="text" name="motherInfo" class="form-input" placeholder="姓名 手机号">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.fatherJob">父亲工作单位</label>
+                  <input type="text" name="fatherJob" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.motherJob">母亲工作单位</label>
+                  <input type="text" name="motherJob" class="form-input">
+                </div>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.emergency">紧急联系人 & 资金</h4>
+              <div class="form-group">
+                <label data-i18n="register.emergency">紧急联系人（姓名 / 手机号 / 邮箱）</label>
+                <input type="text" name="emergency" class="form-input" placeholder="张三 138xxxx xxxx@email.com">
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.funding">资金支持人（姓名 / 手机号 / 邮箱）</label>
+                <input type="text" name="funding" class="form-input" placeholder="李四 139xxxx xxxx@email.com">
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.other">其他</h4>
+              <div class="form-group">
+                <label data-i18n="register.photoConsent">是否同意使用在美期间的精彩照片？</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="photoConsent" value="yes" checked> <span data-i18n="register.yes">是</span></label>
+                  <label class="radio-label"><input type="radio" name="photoConsent" value="no"> <span data-i18n="register.no">否</span></label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.source">了解途径</label>
+                <div class="checkbox-group">
+                  <label class="checkbox-label"><input type="checkbox" name="source" value="lecture"> <span data-i18n="register.source.lecture">宣讲会</span></label>
+                  <label class="checkbox-label"><input type="checkbox" name="source" value="friend"> <span data-i18n="register.source.friend">朋友介绍</span></label>
+                  <label class="checkbox-label"><input type="checkbox" name="source" value="newspaper"> <span data-i18n="register.source.newspaper">报纸</span></label>
+                  <label class="checkbox-label"><input type="checkbox" name="source" value="website"> <span data-i18n="register.source.website">网站</span></label>
+                  <label class="checkbox-label"><input type="checkbox" name="source" value="other"> <span data-i18n="register.source.other">其他</span></label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.health">健康状况 <span>*</span></label>
+                <select name="health" class="form-select" required>
+                  <option value="" data-i18n="register.select">请选择</option>
+                  <option value="excellent" data-i18n="register.health.excellent">优</option>
+                  <option value="good" data-i18n="register.health.good">良</option>
+                  <option value="fair" data-i18n="register.health.fair">一般</option>
+                  <option value="poor" data-i18n="register.health.poor">差</option>
+                </select>
+                <textarea name="healthDetail" class="form-textarea" style="margin-top:8px" placeholder="如有疾病、手术、过敏、哮喘、风湿、关节疼痛、传染病等，请提供详细信息"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: Visa Info -->
+          <div class="register-tab" data-tab="2">
+            <h3 class="register-tab-title" data-i18n="register.tab2.title">签证信息</h3>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.passport">护照信息</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.passportNum">护照编号 <span>*</span></label>
+                  <input type="text" name="passportNum" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.passportPlace">护照颁发地点 <span>*</span></label>
+                  <input type="text" name="passportPlace" class="form-input" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.passportIssue">护照颁发时间 <span>*</span></label>
+                  <input type="date" name="passportIssue" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.passportExpiry">护照过期时间 <span>*</span></label>
+                  <input type="date" name="passportExpiry" class="form-input" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.passportLost">是否曾遗失或被盗过护照？</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="passportLost" value="yes"> <span data-i18n="register.yes">是</span></label>
+                  <label class="radio-label"><input type="radio" name="passportLost" value="no" checked> <span data-i18n="register.no">否</span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.usVisa">美国签证历史</h4>
+              <div class="form-group">
+                <label data-i18n="register.hasAppliedUS">是否申请过美国签证？</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="hasAppliedUS" value="yes"> <span data-i18n="register.yes">是</span></label>
+                  <label class="radio-label"><input type="radio" name="hasAppliedUS" value="no" checked> <span data-i18n="register.no">否</span></label>
+                </div>
+              </div>
+              <div class="conditional-fields" id="us-visa-fields" style="display:none">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label data-i18n="register.usVisaWhen">何时申请</label>
+                    <input type="text" name="usVisaWhen" class="form-input" placeholder="如：2023年5月">
+                  </div>
+                  <div class="form-group">
+                    <label data-i18n="register.usVisaWhere">何地申请</label>
+                    <input type="text" name="usVisaWhere" class="form-input" placeholder="如：北京">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.usVisaGot">是否获得签证？</label>
+                  <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="usVisaGot" value="yes"> <span data-i18n="register.yes">是</span></label>
+                    <label class="radio-label"><input type="radio" name="usVisaGot" value="no"> <span data-i18n="register.no">否</span></label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.usVisaType">签证类型</label>
+                  <input type="text" name="usVisaType" class="form-input" placeholder="如：B1/B2">
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.hasDenied">是否被拒签过？</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="hasDenied" value="yes"> <span data-i18n="register.yes">是</span></label>
+                  <label class="radio-label"><input type="radio" name="hasDenied" value="no" checked> <span data-i18n="register.no">否</span></label>
+                </div>
+                <textarea name="denyReason" class="form-textarea" style="margin-top:8px;display:none" placeholder="拒签原因"></textarea>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.travel">旅行历史</h4>
+              <div class="form-group">
+                <label data-i18n="register.hasBeenUS">是否到过美国？</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="hasBeenUS" value="yes"> <span data-i18n="register.yes">是</span></label>
+                  <label class="radio-label"><input type="radio" name="hasBeenUS" value="no" checked> <span data-i18n="register.no">否</span></label>
+                </div>
+              </div>
+              <div class="conditional-fields" id="us-visit-fields" style="display:none">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label data-i18n="register.usVisitWhen">何时</label>
+                    <input type="text" name="usVisitWhen" class="form-input">
+                  </div>
+                  <div class="form-group">
+                    <label data-i18n="register.usVisitDuration">逗留了多久</label>
+                    <input type="text" name="usVisitDuration" class="form-input">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.hasRelativesUS">是否有亲属在美国？</label>
+                <div class="radio-group">
+                  <label class="radio-label"><input type="radio" name="hasRelativesUS" value="yes"> <span data-i18n="register.yes">是</span></label>
+                  <label class="radio-label"><input type="radio" name="hasRelativesUS" value="no" checked> <span data-i18n="register.no">否</span></label>
+                </div>
+                <input type="text" name="relativesUS" class="form-input" style="margin-top:8px;display:none" placeholder="请注明姓名和关系">
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.countries5yr">五年内曾进入的所有国家/地区</label>
+                <textarea name="countries5yr" class="form-textarea" placeholder="格式：年份 国家（如：2022 日本；2023 泰国）"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Education & Work -->
+          <div class="register-tab" data-tab="3">
+            <h3 class="register-tab-title" data-i18n="register.tab3.title">教育 & 工作</h3>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.education">学校信息</h4>
+              <div class="form-group">
+                <label data-i18n="register.schoolName">学校名称 <span>*</span></label>
+                <input type="text" name="schoolName" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.schoolAddress">学校地址及邮编 <span>*</span></label>
+                <input type="text" name="schoolAddress" class="form-input" placeholder="省 市 区 街道 邮编" required>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.schoolPhone">学校电话</label>
+                <input type="tel" name="schoolPhone" class="form-input">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.department">所在院系 <span>*</span></label>
+                  <input type="text" name="department" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.duration">学制（年）<span>*</span></label>
+                  <input type="number" name="duration" class="form-input" min="1" max="10" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.major">所学专业 <span>*</span></label>
+                <input type="text" name="major" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.work">工作/兼职信息</h4>
+              <div class="form-group">
+                <label data-i18n="register.companyName">公司名称</label>
+                <input type="text" name="companyName" class="form-input">
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.companyAddress">公司地址</label>
+                <input type="text" name="companyAddress" class="form-input">
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.companyContact">公司联系人姓名</label>
+                <input type="text" name="companyContact" class="form-input">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.jobTitle">职位</label>
+                  <input type="text" name="jobTitle" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.jobDesc">职位简单描述</label>
+                  <input type="text" name="jobDesc" class="form-input">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: English & Confirm -->
+          <div class="register-tab" data-tab="4">
+            <h3 class="register-tab-title" data-i18n="register.tab4.title">英语能力 & 确认</h3>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.english">英语能力</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.englishYears">学习英语时间（年）</label>
+                  <input type="number" name="englishYears" class="form-input" min="0" max="30">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.englishLevel">英语程度 <span>*</span></label>
+                  <select name="englishLevel" class="form-select" required>
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="beginner" data-i18n="register.english.beginner">初级</option>
+                    <option value="intermediate" data-i18n="register.english.intermediate">中级</option>
+                    <option value="upper" data-i18n="register.english.upper">中高级</option>
+                    <option value="advanced" data-i18n="register.english.advanced">高级</option>
+                    <option value="fluent" data-i18n="register.english.fluent">流利</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.confirm">确认 & 签名</h4>
+              <div class="form-group">
+                <label class="checkbox-label" style="font-size:1rem;line-height:1.6">
+                  <input type="checkbox" name="confirmTruth" value="yes" required>
+                  <span data-i18n="register.confirmTruth">以上内容均属实，如有虚假或填写不清，可能导致签证拒签，所引起的后果由本人承担。</span>
+                </label>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.signature">申请人签名 <span>*</span></label>
+                  <input type="text" name="signature" class="form-input" placeholder="请输入姓名" required>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.signDate">填表日期 <span>*</span></label>
+                  <input type="date" name="signDate" class="form-input" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: Additional Info (from 登记表) -->
+          <div class="register-tab" data-tab="5">
+            <h3 class="register-tab-title" data-i18n="register.tab5.title">附加信息</h3>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.eduDetail">教育详情（补充登记表）</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.highestEdu">最终学历 <span>*</span></label>
+                  <select name="highestEdu" class="form-select" required>
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="highschool" data-i18n="register.edu.highschool">高中</option>
+                    <option value="associate" data-i18n="register.edu.associate">大专</option>
+                    <option value="bachelor" data-i18n="register.edu.bachelor">本科</option>
+                    <option value="master" data-i18n="register.edu.master">硕士</option>
+                    <option value="doctorate" data-i18n="register.edu.doctorate">博士</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.graduationYear">毕业年份 <span>*</span></label>
+                  <input type="number" name="graduationYear" class="form-input" min="2000" max="2030" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.artsScience">文理分类</label>
+                  <select name="artsScience" class="form-select">
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="arts" data-i18n="register.edu.arts">文科</option>
+                    <option value="science" data-i18n="register.edu.science">理科</option>
+                    <option value="comprehensive" data-i18n="register.edu.comprehensive">综合</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.diploma">学位证书</label>
+                  <select name="diploma" class="form-select">
+                    <option value="" data-i18n="register.select">请选择</option>
+                    <option value="yes" data-i18n="register.yes">已获得</option>
+                    <option value="no" data-i18n="register.no">未获得</option>
+                    <option value="pending" data-i18n="register.edu.pending">在读/待发</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.eduHistory">学习经历（从小学开始至最终学历）</h4>
+              <p style="font-size:0.8rem;color:var(--color-text-light);margin-bottom:16px" data-i18n="register.eduHistory.hint">请按时间顺序填写各阶段教育经历</p>
+              <div class="form-group">
+                <label data-i18n="register.eduHistory.primary">小学</label>
+                <div class="form-row form-row-3">
+                  <input type="text" name="primarySchool" class="form-input" placeholder="学校名称">
+                  <input type="text" name="primarySchoolAddr" class="form-input" placeholder="学校地址">
+                  <input type="text" name="primaryYears" class="form-input" placeholder="如：2008-2014">
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.eduHistory.middle">初中</label>
+                <div class="form-row form-row-3">
+                  <input type="text" name="middleSchool" class="form-input" placeholder="学校名称">
+                  <input type="text" name="middleSchoolAddr" class="form-input" placeholder="学校地址">
+                  <input type="text" name="middleYears" class="form-input" placeholder="如：2014-2017">
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.eduHistory.high">高中</label>
+                <div class="form-row form-row-3">
+                  <input type="text" name="highSchool" class="form-input" placeholder="学校名称">
+                  <input type="text" name="highSchoolAddr" class="form-input" placeholder="学校地址">
+                  <input type="text" name="highYears" class="form-input" placeholder="如：2017-2020">
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="register.eduHistory.college">大学/大专</label>
+                <div class="form-row form-row-3">
+                  <input type="text" name="collegeSchool" class="form-input" placeholder="学校名称">
+                  <input type="text" name="collegeSchoolAddr" class="form-input" placeholder="学校地址">
+                  <input type="text" name="collegeYears" class="form-input" placeholder="如：2020-2024">
+                </div>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.englishTests">英语测试成绩</h4>
+              <p style="font-size:0.8rem;color:var(--color-text-light);margin-bottom:16px" data-i18n="register.englishTests.hint">如有以下考试成绩，请填写（非必填）</p>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.testCET">大学英语四六级</label>
+                  <input type="text" name="testCET" class="form-input" placeholder="如：CET-4 550分">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.testIELTS">IELTS 雅思</label>
+                  <input type="text" name="testIELTS" class="form-input" placeholder="如：6.5">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label data-i18n="register.testTOEFL">TOEFL 托福</label>
+                  <input type="text" name="testTOEFL" class="form-input" placeholder="如：90">
+                </div>
+                <div class="form-group">
+                  <label data-i18n="register.testOther">其他英语考试</label>
+                  <input type="text" name="testOther" class="form-input" placeholder="如：TEM-4 良好">
+                </div>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.preferences">项目偏好</h4>
+              <p style="font-size:0.8rem;color:var(--color-text-light);margin-bottom:16px" data-i18n="register.preferences.hint">在选择 J-1 ITP 项目时，以下因素对你有多重要？（多选）</p>
+              <div class="checkbox-group" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="location"> <span data-i18n="register.pref.location">工作地点</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="salary"> <span data-i18n="register.pref.salary">薪资待遇</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="housing"> <span data-i18n="register.pref.housing">住宿安排</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="sponsor"> <span data-i18n="register.pref.sponsor">Sponsor 知名度</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="position"> <span data-i18n="register.pref.position">岗位匹配度</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="duration"> <span data-i18n="register.pref.duration">项目时长</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="culture"> <span data-i18n="register.pref.culture">文化交流机会</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="career"> <span data-i18n="register.pref.career">职业发展前景</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="cost"> <span data-i18n="register.pref.cost">项目费用</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="preference" value="support"> <span data-i18n="register.pref.support">落地后支持</span></label>
+              </div>
+            </div>
+
+            <div class="register-field-group">
+              <h4 data-i18n="register.group.notes">补充说明</h4>
+              <div class="form-group">
+                <label data-i18n="register.additionalNotes">其他你想告诉我们的信息</label>
+                <textarea name="additionalNotes" class="form-textarea" style="min-height:100px" placeholder="例如：特殊技能、获奖经历、为什么想去美国、对项目的期待、任何其他需要说明的情况"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="register-nav">
+            <button type="button" class="register-btn register-btn-prev" id="btn-prev" style="visibility:hidden" data-i18n="register.btn.prev">上一步</button>
+            <button type="button" class="register-btn register-btn-next" id="btn-next" data-i18n="register.btn.next">下一步</button>
+            <button type="submit" class="register-btn register-btn-submit" id="btn-submit" style="display:none" data-i18n="register.btn.submit">提交报名</button>
+          </div>
+        </form>
+
+        <!-- Success State -->
+        <div class="form-success" id="register-success">
+          <div class="form-success-icon">✅</div>
+          <h3 data-i18n="register.success.title">报名已提交！</h3>
+          <p data-i18n="register.success.desc">我们将在 24 小时内审核你的报名信息，并通过邮箱或微信联系你。你也可以先扫码添加 Miguel 微信，更快获得回复。</p>
+          <div style="display:flex;justify-content:center;margin-top:16px;gap:24px">
+            <div class="qr-card">
+              <img src="assets/images/wechat-qr.jpg" alt="WeChat QR" style="width:120px;height:120px;object-fit:cover;border-radius:8px;margin:0 auto 8px">
+              <div class="qr-label" style="font-size:0.85rem">微信：海乐 Miguel</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:24px">
+            <a href="index.html" class="btn btn-primary" data-i18n="register.btn.backHome">返回首页</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Aurora Bridge</h3>
+          <p data-i18n="footer.brand.desc">连接中国与世界，搭建职业跃迁的桥梁。ICEO 官方授权国际顾问，真实美国经历，透明专业服务。</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">服务</h4>
+          <a href="product-detail.html?id=starter-bundle">Starter Bundle</a>
+          <a href="product-detail.html?id=pro-report">Pro Report</a>
+          <a href="product-detail.html?id=premium-landing">Premium</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">公司</h4>
+          <a href="about.html" data-i18n="nav.about">关于</a>
+          <a href="contact.html" data-i18n="nav.contact">联系方式</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">联系</h4>
+          <a href="mailto:migueleeaurora@gmail.com">migueleeaurora@gmail.com</a>
+          <a href="tel:+8617621957321">+86 176 2195 7321</a>
+          <a href="tel:+17754606930">+1 775 460 6930</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Aurora Bridge. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+  // Register form tab navigation
+  (function() {
+    let currentTab = 1;
+    const totalTabs = 5;
+    const form = document.getElementById('register-form');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const submitBtn = document.getElementById('btn-submit');
+
+    function showTab(n) {
+      document.querySelectorAll('.register-tab').forEach(tab => {
+        tab.classList.toggle('active', parseInt(tab.dataset.tab) === n);
+      });
+      document.querySelectorAll('.register-progress-step').forEach(step => {
+        const stepNum = parseInt(step.dataset.step);
+        step.classList.toggle('active', stepNum <= n);
+        step.classList.toggle('current', stepNum === n);
+      });
+
+      prevBtn.style.visibility = n === 1 ? 'hidden' : 'visible';
+      if (n === totalTabs) {
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'inline-block';
+      } else {
+        nextBtn.style.display = 'inline-block';
+        submitBtn.style.display = 'none';
+      }
+      currentTab = n;
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentTab < totalTabs) showTab(currentTab + 1);
+    });
+    prevBtn.addEventListener('click', () => {
+      if (currentTab > 1) showTab(currentTab - 1);
+    });
+
+    // Conditional fields
+    document.querySelectorAll('input[name="hasAppliedUS"]').forEach(r => {
+      r.addEventListener('change', function() {
+        document.getElementById('us-visa-fields').style.display = this.value === 'yes' ? 'block' : 'none';
+      });
+    });
+    document.querySelectorAll('input[name="hasBeenUS"]').forEach(r => {
+      r.addEventListener('change', function() {
+        document.getElementById('us-visit-fields').style.display = this.value === 'yes' ? 'block' : 'none';
+      });
+    });
+    document.querySelectorAll('input[name="hasDenied"]').forEach(r => {
+      r.addEventListener('change', function() {
+        document.querySelector('textarea[name="denyReason"]').style.display = this.value === 'yes' ? 'block' : 'none';
+      });
+    });
+    document.querySelectorAll('input[name="hasRelativesUS"]').forEach(r => {
+      r.addEventListener('change', function() {
+        document.querySelector('input[name="relativesUS"]').style.display = this.value === 'yes' ? 'block' : 'block';
+        if (this.value === 'no') document.querySelector('input[name="relativesUS"]').style.display = 'none';
+      });
+    });
+
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === 'zh' ? '提交中...' : 'Submitting...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      // Handle multi-value checkboxes
+      data.source = formData.getAll('source');
+      data.preference = formData.getAll('preference');
+
+      try {
+        const response = await fetch('https://formspree.io/f/xnjewekr', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('register-success').classList.add('active');
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        console.log('Form data:', data);
+        form.style.display = 'none';
+        document.getElementById('register-success').classList.add('active');
+
+        const mailtoLink = `mailto:migueleeaurora@gmail.com?subject=Aurora Bridge Registration from ${encodeURIComponent(data.fullName || data.firstName)}&body=${encodeURIComponent(JSON.stringify(data, null, 2))}`;
+        window.open(mailtoLink, '_blank');
+      }
+
+      submitBtn.disabled = false;
+    });
+  })();
+  </script>
+</body>
+</html>
