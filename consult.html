@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get started with Aurora Bridge — Free J-1 ITP consultation. Tell us about yourself and we'll get back within 24 hours.">
+  <title>Consultation — Aurora Bridge</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEW8C3ERGN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YEW8C3ERGN');
+  </script>
+
+</head>
+<body>
+
+  <nav class="nav scrolled">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-dot"></span>
+        Aurora Bridge
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="products.html" data-i18n="nav.products">产品服务</a>
+        <a href="about.html" data-i18n="nav.about">关于</a>
+        <a href="contact.html" data-i18n="nav.contact">联系方式</a>
+        <a href="register.html" data-i18n="nav.register">报名</a>
+        <button id="nav-lang" class="nav-lang" onclick="toggleLang()">EN</button>
+        <a href="consult.html" class="nav-cta active" data-i18n="nav.consult">立即咨询</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title" data-i18n="consult.page.title">立即咨询</h1>
+      <p class="page-hero-desc" data-i18n="consult.page.subtitle">告诉我们你的情况，我们将在 24 小时内联系你</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container-narrow">
+      <div class="consult-form-card animate-on-scroll">
+        <!-- Form -->
+        <form id="consult-form">
+          <div class="form-group">
+            <label data-i18n="form.name">姓名 <span>*</span></label>
+            <input type="text" id="form-name" class="form-input" data-i18n-placeholder="form.name.placeholder" placeholder="请输入你的姓名" required>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="form.email">邮箱 <span>*</span></label>
+            <input type="email" id="form-email" class="form-input" data-i18n-placeholder="form.email.placeholder" placeholder="请输入你的邮箱地址" required>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="form.phone">手机号（选填）</label>
+            <input type="tel" id="form-phone" class="form-input" data-i18n-placeholder="form.phone.placeholder" placeholder="+86 或 +1 开头的手机号">
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="form.product">意向产品 <span>*</span></label>
+            <select id="form-product" class="form-select" required>
+              <option value="" data-i18n="form.product.placeholder">请选择你感兴趣的产品</option>
+              <option value="starter-bundle" data-i18n="form.product.starter">零基础入门包（Starter）</option>
+              <option value="pro-report" data-i18n="form.product.pro">顾问评估报告 + 简历模板（Pro）</option>
+              <option value="premium-landing" data-i18n="form.product.premium">Premium 赴美全流程（Premium）</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="form.status">当前状态 <span>*</span></label>
+            <select id="form-status" class="form-select" data-i18n-placeholder="form.status.placeholder" required>
+              <option value="" data-i18n="form.status.placeholder">请选择你的当前状态</option>
+              <option value="student" data-i18n="form.status.student">在校学生</option>
+              <option value="graduate" data-i18n="form.status.graduate">已毕业（1年内）</option>
+              <option value="working" data-i18n="form.status.working">正在工作</option>
+              <option value="other" data-i18n="form.status.other">其他</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="form.message">留言</label>
+            <textarea id="form-message" class="form-textarea" data-i18n-placeholder="form.message.placeholder" placeholder="请简要说明你的情况、目标和疑问（选填）"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" data-i18n="form.submit">提交咨询</button>
+        </form>
+
+        <!-- Success State -->
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">✅</div>
+          <h3 data-i18n="form.success.title">咨询已提交！</h3>
+          <p data-i18n="form.success.desc">我们将在 24 小时内通过邮箱或微信联系你。你也可以先扫码添加 Miguel 微信，更快获得回复。</p>
+          <div style="display:flex;justify-content:center;margin-top:16px">
+            <div class="qr-card">
+              <img src="assets/images/wechat-qr.jpg" alt="WeChat QR" style="width:120px;height:120px;object-fit:cover;border-radius:8px;margin:0 auto 8px">
+              <div class="qr-label" style="font-size:0.85rem">海乐 Miguel</div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:24px">
+            <p style="color:var(--color-text-light);font-size:0.9rem;margin-bottom:12px">或者立即填写完整报名表，加快审核流程</p>
+            <a href="register.html" class="btn btn-primary" data-i18n="register.btn.gotoRegister">填写完整报名表 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Aurora Bridge</h3>
+          <p data-i18n="footer.brand.desc">连接中国与世界，搭建职业跃迁的桥梁。ICEO 官方授权国际顾问，真实美国经历，透明专业服务。</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.services">服务</h4>
+          <a href="product-detail.html?id=starter-bundle">Starter Bundle</a>
+          <a href="product-detail.html?id=pro-report">Pro Report</a>
+          <a href="product-detail.html?id=premium-landing">Premium</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">公司</h4>
+          <a href="about.html" data-i18n="nav.about">关于</a>
+          <a href="contact.html" data-i18n="nav.contact">联系方式</a>
+        <a href="register.html" data-i18n="nav.register">报名</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">联系</h4>
+          <a href="mailto:migueleeaurora@gmail.com">migueleeaurora@gmail.com</a>
+          <a href="tel:+8617621957321">+86 176 2195 7321</a>
+          <a href="tel:+17754606930">+1 775 460 6930</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">© 2026 Aurora Bridge. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
