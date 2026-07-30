@@ -13,7 +13,7 @@ const i18n = {
     'nav.lang': 'EN',
 
     // Hero
-    'hero.badge': 'ICEO 官方授权国际顾问',
+    'hero.badge': '真实美国经历 · 前 Caesars 奢牌酒店',
     'hero.title.part1': '你的美国梦想，',
     'hero.title.part2': '从这里开始',
     'hero.subtitle': 'J-1 ITP 专业咨询 | 真实经验 · 透明方案 · 全程陪伴',
@@ -34,7 +34,7 @@ const i18n = {
     // About
     'about.title': '你好，我是 Miguel',
     'about.desc1': '我不是传统意义上的"中介"。我在美国内华达州里诺的 Caesars 奢牌酒店厨房工作了一年——切过上千份食材、扛过夜班、也带过新人。我比你更清楚一个中国年轻人踏上J-1之路会经历什么。',
-    'about.desc2': '我是 ICEO 官方授权的国际顾问，多次辅导申请者完成岗位匹配、简历优化和面签准备。我的客户不是"单子"，而是一个个有梦想的年轻人。',
+    'about.desc2': '我是走过 J-1 全程的亲历者，多次辅导申请者完成岗位匹配、简历优化和面签准备。我的客户不是"单子"，而是一个个有梦想的年轻人。',
     'about.stat1': '1年+',
     'about.stat1label': '美国实地工作经验',
     'about.stat2': '95%+',
@@ -93,8 +93,8 @@ const i18n = {
 
     'why1.title': '真实经历',
     'why1.desc': '在美国酒店厨房实打实工作一年，不是纸上谈兵。',
-    'why2.title': '官方授权',
-    'why2.desc': 'ICEO 官方授权国际顾问，正规渠道，品质保障。',
+    'why2.title': '正规渠道',
+    'why2.desc': '真实美国经历，正规渠道，品质保障。',
     'why3.title': '透明定价',
     'why3.desc': '公开所有费用构成，帮你计算最真实的预算。',
     'why4.title': '高通过率',
@@ -160,7 +160,7 @@ const i18n = {
     'cta.button': '立即免费咨询',
 
     // Footer
-    'footer.brand.desc': '连接中国与世界，搭建职业跃迁的桥梁。ICEO 官方授权国际顾问，真实美国经历，透明专业服务。',
+    'footer.brand.desc': '连接中国与世界，搭建职业跃迁的桥梁。真实美国经历，透明专业服务。',
     'footer.services': '服务',
     'footer.company': '公司',
     'footer.contact': '联系',
@@ -204,7 +204,7 @@ const i18n = {
     'about.story.ch4.p2': '我学会了和来自十几个国家的同事一起干活。墨西哥的 prep cook 会用西班牙语骂你笨蛋，但你帮他处理完一筐洋葱之后他会把自己的妈妈做的 tamale 分你一半。跨文化这件事，不是书本上能学来的。',
     'about.story.ch4.p3': '我学会了面对压力。凌晨四点的 Tahoe 零下十五度，你穿着单薄的厨师服走在去 bakery 的路上，手冻得握不住门把手——但你知道进去之后还有五百个可颂等着你。学会在压力下保持清醒，是所有成长的第一步。',
     'about.story.ch5.title': '第五章：为什么做 Aurora Bridge',
-    'about.story.ch5.p1': '回国后，我获得了 ICEO 官方授权的国际顾问资质。有人问我："干了一年厨房，回来就做顾问？"',
+    'about.story.ch5.p1': '回国后，我获得了国际顾问资质，正式开始了辅导之路。有人问我："干了一年厨房，回来就做顾问？"',
     'about.story.ch5.p2': '我说：正因为真正干过，才知道那些"流程说明书"有多不靠谱。市面上的 J-1 中介，大多数没在美国工作过一天。他们能告诉你表格怎么填，但说不出到了美国第一天上班该穿什么鞋、见了主管第一句话说什么、被骂了之后该怎么办。',
     'about.story.ch5.p3': '这些"说不出来"的东西，恰恰是决定一个人能不能在美国待下去的关键。',
     'about.story.ch5.p4': '所以我做了 Aurora Bridge。不是为了做中介——而是为了做一座桥。连接那些有勇气走出舒适圈的年轻人，和他们想去的那个世界。',
@@ -450,7 +450,7 @@ const i18n = {
     'nav.consult': 'Get Started',
     'nav.lang': '中文',
 
-    'hero.badge': 'ICEO Authorized International Consultant',
+    'hero.badge': 'Real U.S. Experience · Former Caesars Luxury Hotel',
     'hero.title.part1': 'Your American Dream',
     'hero.title.part2': 'Starts Here',
     'hero.subtitle': 'J-1 ITP Professional Consulting | Real Experience · Transparent Pricing · Full Support',
@@ -468,7 +468,7 @@ const i18n = {
 
     'about.title': 'Hi, I\'m Miguel',
     'about.desc1': 'I\'m not your typical "agent." I spent a full year working in the kitchen of a Caesars luxury hotel in Reno, Nevada — prepping thousands of ingredients, surviving night shifts, and training newcomers. I know exactly what a young Chinese person goes through on the J-1 journey.',
-    'about.desc2': 'I\'m an ICEO-authorized international consultant who has helped dozens of applicants with job matching, resume optimization, and visa interview preparation. My clients aren\'t "cases" — they\'re young people with dreams.',
+    'about.desc2': 'I\'m a J-1 veteran who has walked this path and helped dozens of applicants with job matching, resume optimization, and visa interview preparation. My clients aren\'t "cases" — they\'re young people with dreams.',
     'about.stat1': '1+ Year',
     'about.stat1label': 'U.S. Work Experience',
     'about.stat2': '95%+',
@@ -524,8 +524,8 @@ const i18n = {
     'why.subtitle': 'Six reasons why I\'m not "just another agent"',
     'why1.title': 'Real Experience',
     'why1.desc': 'A full year working in a U.S. hotel kitchen. Not theory — lived reality.',
-    'why2.title': 'Officially Authorized',
-    'why2.desc': 'ICEO-authorized international consultant. Legitimate, quality-assured.',
+    'why2.title': 'Verified Channel',
+    'why2.desc': 'Real U.S. experience. Legitimate, quality-assured.',
     'why3.title': 'Transparent Pricing',
     'why3.desc': 'Every cost broken down. Calculate your real budget with zero hidden fees.',
     'why4.title': 'High Approval Rate',
@@ -577,7 +577,7 @@ const i18n = {
     'cta.subtitle': 'Contact Miguel now for a free initial assessment and advice',
     'cta.button': 'Get Free Consultation',
 
-    'footer.brand.desc': 'Bridging China and the world, building career leap pathways. ICEO-authorized international consultant with real U.S. experience and transparent professional service.',
+    'footer.brand.desc': 'Bridging China and the world, building career leap pathways. Real U.S. experience and transparent professional service.',
     'footer.services': 'Services',
     'footer.company': 'Company',
     'footer.contact': 'Contact',
@@ -619,7 +619,7 @@ const i18n = {
     'about.story.ch4.p2': 'I learned to work alongside colleagues from over a dozen countries. The Mexican prep cook would call you an idiot in Spanish — then share his mom\'s homemade tamales after you helped him process a basket of onions. Cross-cultural understanding isn\'t something you learn from a book.',
     'about.story.ch4.p3': 'I learned to face pressure. At 4 AM, Tahoe is fifteen below zero. You walk to the bakery in a thin chef\'s coat, your hands so cold you can barely grip the door handle — but you know five hundred croissants are waiting inside. Learning to stay clear-headed under pressure is the first step to all growth.',
     'about.story.ch5.title': 'Chapter Five: Why I Started Aurora Bridge',
-    'about.story.ch5.p1': 'After returning to China, I became an ICEO-authorized international consultant. Some asked: "One year in a kitchen, and now you\'re a consultant?"',
+    'about.story.ch5.p1': 'After returning to China, I became an international consultant, officially starting my mentorship journey. Some asked: "One year in a kitchen, and now you\'re a consultant?"',
     'about.story.ch5.p2': 'I said: precisely because I actually did it, I know how unreliable those "process manuals" really are. Most J-1 agencies have never worked a day in the U.S. They can tell you what form to fill out, but they can\'t tell you what shoes to wear on your first shift, what to say when you meet your supervisor, or what to do when you get yelled at.',
     'about.story.ch5.p3': 'Those "unspoken things" are exactly what determine whether someone can make it in America.',
     'about.story.ch5.p4': 'That\'s why I built Aurora Bridge. Not to be another agency — but to be a real bridge. Connecting courageous young people who dare to leave their comfort zones with the world they dream of.',

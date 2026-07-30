@@ -10,6 +10,8 @@
   <meta property="og:type" content="website">
   <title data-i18n="">Aurora Bridge — 极光桥国际 | J-1 ITP 专业咨询</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌉</text></svg>">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEW8C3ERGN"></script>
   <script>
@@ -22,6 +24,9 @@
 </head>
 <body>
 
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
@@ -31,7 +36,8 @@
       </a>
       <div class="nav-links">
         <a href="index.html" data-i18n="nav.home">首页</a>
-        <a href="products.html" data-i18n="nav.products">产品服务</a>
+        <a href="products.html">产品服务</a>
+        <a href="guide.html">百科</a>
         <a href="about.html" data-i18n="nav.about">关于</a>
         <a href="contact.html" data-i18n="nav.contact">联系方式</a>
         <a href="register.html" data-i18n="nav.register">报名</a>
@@ -45,43 +51,43 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero-section">
     <canvas id="aurora-canvas"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge" data-i18n="hero.badge">ICEO 官方授权国际顾问</div>
-      <h1 class="hero-title">
+      <div class="hero-badge reveal-scale" data-i18n="hero.badge">真实美国经历 · 前 Caesars 奢牌酒店</div>
+      <h1 class="hero-title reveal-up">
         <span data-i18n="hero.title.part1">你的美国梦想，</span><br>
         <span class="gold" data-i18n="hero.title.part2">从这里开始</span>
       </h1>
-      <p class="hero-subtitle" data-i18n="hero.subtitle">J-1 ITP 专业咨询 | 真实经验 · 透明方案 · 全程陪伴</p>
-      <div class="hero-actions">
-        <a href="products.html" class="btn btn-primary btn-lg" data-i18n="hero.cta.products">探索服务</a>
-        <a href="consult.html" class="btn btn-outline btn-lg" data-i18n="hero.cta.consult">免费咨询</a>
+      <p class="hero-subtitle typing-cursor reveal-up stagger-1" data-i18n="hero.subtitle">J-1 ITP 专业咨询 | 真实经验 · 透明方案 · 全程陪伴</p>
+      <div class="hero-actions reveal-up stagger-2">
+        <a href="products.html" class="btn btn-primary btn-lg pulse-ring" data-i18n="hero.cta.products">探索服务</a>
+        <a href="consult.html" class="btn btn-outline btn-lg btn-magnetic" data-i18n="hero.cta.consult">免费咨询</a>
       </div>
     </div>
     <div class="hero-scroll"><span></span></div>
   </section>
 
   <!-- Value Propositions -->
-  <section class="section section-dark">
+  <section class="section section-dark bg-grid">
     <div class="container">
-      <div class="section-header animate-on-scroll">
+      <div class="section-header reveal-up">
         <div class="section-label" data-i18n="value.title">为什么选择 Aurora Bridge</div>
         <h2 class="section-title" data-i18n="value.subtitle">我们不止是顾问，我们是走过这条路的人</h2>
       </div>
       <div class="value-grid">
-        <div class="value-card animate-on-scroll delay-1">
+        <div class="value-card glow-card reveal-up stagger-1">
           <div class="value-icon">💪</div>
           <h3 data-i18n="value1.title">真实经历</h3>
           <p data-i18n="value1.desc">美国酒店厨房一年实战，不是纸上谈兵。每一个建议都来自亲身踩过的坑。</p>
         </div>
-        <div class="value-card animate-on-scroll delay-2">
+        <div class="value-card glow-card reveal-up stagger-2">
           <div class="value-icon">🔍</div>
           <h3 data-i18n="value2.title">透明方案</h3>
-          <p data-i18n="value2.desc">公开 Sponsor 真实费用，帮你识破机构加价套路。不赚信息差的钱。</p>
+          <p data-i18n="value2.desc">公开 Sponsor 真实费用��帮你识破机构加价套路。不赚信息差的钱。</p>
         </div>
-        <div class="value-card animate-on-scroll delay-3">
+        <div class="value-card glow-card reveal-up stagger-3">
           <div class="value-icon">🤝</div>
           <h3 data-i18n="value3.title">全链路陪伴</h3>
           <p data-i18n="value3.desc">从项目选择到落地美国，从第一周工作到一年生存，全程在你身边。</p>
@@ -96,12 +102,12 @@
       <div class="about-grid">
         <div class="about-visual animate-on-scroll">
           <div class="about-image-placeholder">🌉</div>
-          <div class="about-badge">ICEO Authorized Consultant</div>
+          <div class="about-badge">U.S. Experience Verified</div>
         </div>
         <div class="about-text animate-on-scroll delay-1">
           <h2 data-i18n="about.title">你好，我是 Miguel</h2>
           <p data-i18n="about.desc1">我不是传统意义上的"中介"。我在美国内华达州里诺的 Caesars 奢牌酒店厨房工作了一年——切过上千份食材、扛过夜班、也带过新人。我比你更清楚一个中国年轻人踏上 J-1 之路会经历什么。</p>
-          <p data-i18n="about.desc2">我是 ICEO 官方授权的国际顾问，多次辅导申请者完成岗位匹配、简历优化和面签准备。我的客户不是"单子"，而是一个个有梦想的年轻人。</p>
+          <p data-i18n="about.desc2">我是 走过 J-1 全程的亲历者，多次辅导申请者完成岗位匹配、简历优化和面签准备。我的客户不是"单子"，而是一个个有梦想的年轻人。</p>
           <div class="about-stats">
             <div class="about-stat">
               <div class="about-stat-number">1+</div>
@@ -154,7 +160,7 @@
         <div class="why-card animate-on-scroll delay-2">
           <div class="why-icon">✅</div>
           <h3 data-i18n="why2.title">官方授权</h3>
-          <p data-i18n="why2.desc">ICEO 官方授权国际顾问，正规渠道，品质保障。</p>
+          <p data-i18n="why2.desc">真实美国经历，正规渠道，品质保障。</p>
         </div>
         <div class="why-card animate-on-scroll delay-3">
           <div class="why-icon">💰</div>
@@ -318,7 +324,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>Aurora Bridge</h3>
-          <p data-i18n="footer.brand.desc">连接中国与世界，搭建职业跃迁的桥梁。ICEO 官方授权国际顾问，真实美国经历，透明专业服务。</p>
+          <p data-i18n="footer.brand.desc">连接中国与世界，搭建职业跃迁的桥梁。真实美国经历，透明专业服务。</p>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.services">服务</h4>
@@ -356,6 +362,8 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/knowledge-base.js"></script>
+  <script src="js/ai-assistant.js"></script>
   <script src="js/app.js"></script>
   <script>
     // Render product tiers on home page
@@ -363,27 +371,23 @@
       const container = document.getElementById('home-product-tiers');
       if (container) {
         const allProducts = products;
-        container.innerHTML = allProducts.map(p => `
-          <div class="tier-card ${p.featured ? 'featured' : ''} animate-on-scroll">
+        container.innerHTML = allProducts.map((p, i) => `
+          <div class="tier-card glow-card ${p.featured ? 'featured' : ''} reveal-up stagger-${i + 1}">
             <span class="tier-badge ${p.tier}">${p.tier === 'starter' ? '入门 Starter' : p.tier === 'pro' ? '进阶 Pro' : '尊享 Premium'}</span>
             <h3 class="tier-name">${p.name.zh}</h3>
-            <div class="tier-desc">${p.tagline.zh}</div>
+            <div class="tier-price" style="font-size:1.5rem;font-weight:700;margin:12px 0;color:var(--color-gold)">${p.price.zh} <span style="font-size:0.8rem;font-weight:400">起</span></div>
+            <div class="tier-desc" style="margin-bottom:16px">${p.tagline.zh}</div>
             <ul class="tier-list">
-              ${p.includes.slice(0, 3).map(i => `<li>${i.zh}</li>`).join('')}
+              ${p.includes.slice(0, 3).map(i => `<li>${i.zh.substring(0, 50)}...</li>`).join('')}
             </ul>
-            <a href="product-detail.html?id=${p.id}" class="btn ${p.featured ? 'btn-primary' : 'btn-outline'}" style="${!p.featured ? 'color:var(--color-deep);border-color:var(--color-deep);' : ''}">查看详情 →</a>
+            ${p.valueAnchor ? `
+              <div style="margin-top:16px;padding:12px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:8px;font-size:0.8rem;color:#059669;text-align:center">
+                ${p.valueAnchor.roi.zh}
+              </div>
+            ` : ''}
+            <a href="product-detail.html?id=${p.id}" class="btn ${p.featured ? 'btn-primary' : 'btn-outline'}" style="margin-top:16px;${!p.featured ? 'color:var(--color-deep);border-color:var(--color-deep);' : ''}">查看详情 →</a>
           </div>
         `).join('');
-
-        // Re-observe after dynamic content
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-          }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-          observer.observe(el);
-        });
       }
     });
   </script>

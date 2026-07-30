@@ -16,8 +16,8 @@ const products = [
       en: "Everything you need to understand J-1 ITP"
     },
     price: {
-      zh: "¥399 – 1,999",
-      en: "$59 – 299"
+      zh: "¥299 – 1,500",
+      en: "$45 – 229"
     },
     description: {
       zh: "适合第一次了解 J-1 ITP，需要系统化了解项目全貌的同学。包含结构化入门指南、签证资料清单和真实美国厨房生存经验分享。",
@@ -51,8 +51,8 @@ const products = [
       en: "Personalized strategy for your unique path"
     },
     price: {
-      zh: "¥2,000 – 8,000",
-      en: "$299 – 1,199"
+      zh: "¥1,500 – 5,000",
+      en: "$229 – 749"
     },
     description: {
       zh: "适合已有初步了解、需要专业评估和简历包装的同学。包含一对一背景评估、Sponsor 三选一匹配建议、岗位推荐排序和全套简历模板。",
@@ -109,6 +109,28 @@ const products = [
     delivery: {
       zh: "全套 PDF 电子版 + 一对一深度咨询 + 赴美后持续在线支持",
       en: "Full PDF digital pack + In-depth one-on-one consultation + Ongoing post-arrival online support"
+    },
+    valueAnchor: {
+      title: { zh: "为什么值这个价格？", en: "Why Is This Worth It?" },
+      marketComparison: {
+        zh: "同类服务市场价 ¥15,000 – 30,000，Aurora Bridge ¥8,000+",
+        en: "Market rate for comparable services: $2,200 – 4,500. Aurora Bridge: $1,199+"
+      },
+      breakdown: [
+        { zh: "签证材料准备 + 面签培训（市场等价 ¥3,000）", en: "Visa documentation + interview training (market value $450)" },
+        { zh: "赴美落地指南 + 安全手册（市场等价 ¥2,000）", en: "Landing guide + safety handbook (market value $300)" },
+        { zh: "工作第一周实战指导（市场等价 ¥2,500）", en: "First week survival guide (market value $375)" },
+        { zh: "赴美后半年持续支持（市场等价 ¥8,000+）", en: "6 months post-arrival support (market value $1,200+)" },
+        { zh: "紧急情况即时响应（无价）", en: "Emergency real-time response (priceless)" }
+      ],
+      roi: {
+        zh: "赴美一年净收入约 $15,000-25,000，投入不到 ¥10,000。一次投资，十倍回报。",
+        en: "Estimated annual net income in the U.S.: $15,000-25,000. Your investment: less than $1,200. One investment, tenfold return."
+      },
+      guarantee: {
+        zh: "如果面签未通过，免费提供二签策略规划",
+        en: "Free visa denial recovery strategy if you don't pass the first time"
+      }
     },
     featured: false
   }

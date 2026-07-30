@@ -135,6 +135,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================
+  // V2 — Reading Progress Bar
+  // =========================================
+  const progressBar = document.getElementById('reading-progress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = Math.min(progress, 100) + '%';
+    });
+  }
+
+  // =========================================
+  // V2 — Hero Mouse Parallax
+  // =========================================
+  const heroSection = document.getElementById('hero-section');
+  if (heroSection && canvas) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      const content = heroSection.querySelector('.hero-content');
+      if (content) {
+        content.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      }
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      const content = heroSection.querySelector('.hero-content');
+      if (content) {
+        content.style.transform = 'translate(0, 0)';
+      }
+    });
+  }
+
+  // =========================================
+  // V2 — Scroll-Driven Reveal Observer
+  // =========================================
+  const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+
+  // =========================================
   // Scroll Animations (IntersectionObserver)
   // =========================================
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
