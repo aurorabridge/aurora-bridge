@@ -4,6 +4,60 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Current language helper (i18n.js exposes a global `currentLang`, but fall
+  // back to localStorage / 'zh' if it is unavailable for any reason).
+  function currentLanguage() {
+    try {
+      if (typeof currentLang !== 'undefined' && currentLang) return currentLang;
+    } catch (e) { /* ignore */ }
+    return localStorage.getItem('aurora-lang') || 'zh';
+  }
+
+  // =========================================
+  // Scroll Reveal Fallback
+  // -----------------------------------------
+  // Elements hidden by .animate-on-scroll / .reveal-* rely on JS to add the
+  // `visible` class. If IntersectionObserver misbehaves (or a card is taller
+  // than the viewport so its threshold is never met) the content stays at
+  // opacity:0 forever. This rect-based pass guarantees anything inside the
+  // viewport is always revealed.
+  // =========================================
+  const revealSelector = '.animate-on-scroll, .reveal-up, .reveal-left, .reveal-right, .reveal-scale';
+
+  window.revealInView = function revealInView() {
+    document.querySelectorAll(revealSelector).forEach(el => {
+      if (el.classList.contains('visible')) return;
+      const rect = el.getBoundingClientRect();
+      // Ignore elements that are not rendered yet
+      if (rect.width === 0 && rect.height === 0) return;
+      if (rect.top < window.innerHeight - 40 && rect.bottom > 0) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  let revealTicking = false;
+  function onRevealScroll() {
+    if (revealTicking) return;
+    revealTicking = true;
+    requestAnimationFrame(() => {
+      window.revealInView();
+      revealTicking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onRevealScroll, { passive: true });
+  window.addEventListener('resize', onRevealScroll);
+  window.addEventListener('load', () => window.revealInView());
+
+  // Some content is injected by page-specific scripts inside their own
+  // DOMContentLoaded handlers, so re-scan a few times after load, then on every
+  // user interaction with the page.
+  [0, 300, 1000, 3000].forEach(delay => setTimeout(() => window.revealInView(), delay));
+  ['pointerdown', 'keydown', 'touchstart'].forEach(evt =>
+    window.addEventListener(evt, onRevealScroll, { passive: true })
+  );
+
   // =========================================
   // Navigation
   // =========================================
@@ -64,74 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================
   const canvas = document.getElementById('aurora-canvas');
   if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let time = 0;
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Aurora gradients — multiple flowing color bands
-    const auroraLayers = [
-      { hue: 200, speed: 0.0003, amplitude: 0.3, yBase: 0.25, opacity: 0.15 },
-      { hue: 260, speed: 0.0004, amplitude: 0.25, yBase: 0.35, opacity: 0.12 },
-      { hue: 180, speed: 0.0005, amplitude: 0.2, yBase: 0.45, opacity: 0.10 },
-      { hue: 220, speed: 0.00035, amplitude: 0.28, yBase: 0.55, opacity: 0.08 },
-    ];
-
-    function draw() {
-      time += 1;
-      ctx.clearRect(0, 0, width, height);
-
-      // Deep base
-      const baseGrad = ctx.createLinearGradient(0, 0, 0, height);
-      baseGrad.addColorStop(0, '#0A1628');
-      baseGrad.addColorStop(0.5, '#0F2440');
-      baseGrad.addColorStop(1, '#0A1628');
-      ctx.fillStyle = baseGrad;
-      ctx.fillRect(0, 0, width, height);
-
-      // Aurora layers
-      auroraLayers.forEach(layer => {
-        ctx.save();
-        ctx.globalAlpha = layer.opacity;
-
-        for (let x = 0; x < width; x += 2) {
-          const y = height * layer.yBase +
-            Math.sin(x * 0.003 + time * layer.speed) * height * layer.amplitude +
-            Math.sin(x * 0.007 + time * layer.speed * 1.5) * height * layer.amplitude * 0.5 +
-            Math.sin(x * 0.012 + time * layer.speed * 2) * height * layer.amplitude * 0.3;
-
-          const grad = ctx.createLinearGradient(x, y - 80, x, y + 80);
-          grad.addColorStop(0, `hsla(${layer.hue}, 80%, 60%, 0)`);
-          grad.addColorStop(0.5, `hsla(${layer.hue}, 80%, 60%, 0.6)`);
-          grad.addColorStop(1, `hsla(${layer.hue}, 80%, 60%, 0)`);
-
-          ctx.fillStyle = grad;
-          ctx.fillRect(x, y - 80, 2, 160);
-        }
-
-        ctx.restore();
-      });
-
-      // Subtle particles
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-      for (let i = 0; i < 30; i++) {
-        const px = ((Math.sin(i * 37.5 + time * 0.002) + 1) / 2) * width;
-        const py = ((Math.cos(i * 53.7 + time * 0.003) + 1) / 2) * height;
-        ctx.beginPath();
-        ctx.arc(px, py, 1.5, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      requestAnimationFrame(draw);
-    }
-
-    draw();
+    initAuroraCanvas(canvas);
   }
 
   // =========================================
@@ -337,47 +324,53 @@ document.addEventListener('DOMContentLoaded', () => {
     consultForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       const submitBtn = consultForm.querySelector('.form-submit');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = currentLang === 'zh' ? '提交中...' : 'Submitting...';
+      const originalText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = currentLanguage() === 'zh' ? '提交中...' : 'Submitting...';
+      }
 
-      // Collect form data
+      // Collect form data (by field name, fallback to the ids used in the markup)
+      const val = (name, id) => {
+        const el = consultForm.querySelector(`[name="${name}"]`) || document.getElementById(id);
+        return el ? el.value : '';
+      };
       const formData = {
-        name: document.getElementById('form-name').value,
-        email: document.getElementById('form-email').value,
-        phone: document.getElementById('form-phone').value,
-        product: document.getElementById('form-product').value,
-        status: document.getElementById('form-status').value,
-        message: document.getElementById('form-message').value,
+        name: val('name', 'form-name'),
+        email: val('email', 'form-email'),
+        phone: val('phone', 'form-phone'),
+        product: val('product', 'form-product'),
+        status: val('status', 'form-status'),
+        message: val('message', 'form-message'),
       };
 
-      // Send to Formspree (replace with your actual endpoint)
       try {
         const response = await fetch('https://formspree.io/f/xnjewekr', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
-
-        if (response.ok) {
-          consultForm.style.display = 'none';
-          document.getElementById('form-success').classList.add('active');
-        } else {
-          throw new Error('Form submission failed');
-        }
+        if (!response.ok) throw new Error('Form submission failed');
       } catch (err) {
-        // If Formspree fails, still show success (form data will be logged)
+        // Offline / blocked / endpoint not configured — do not lose the lead.
         console.log('Form data (configure Formspree to receive):', formData);
+        try {
+          const mailtoLink = `mailto:migueleeaurora@gmail.com?subject=Aurora Bridge Inquiry from ${encodeURIComponent(formData.name)}&body=Name: ${encodeURIComponent(formData.name)}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0APhone: ${encodeURIComponent(formData.phone)}%0D%0AProduct: ${encodeURIComponent(formData.product)}%0D%0AStatus: ${encodeURIComponent(formData.status)}%0D%0AMessage: ${encodeURIComponent(formData.message)}`;
+          const win = window.open(mailtoLink, '_blank');
+          if (!win) window.location.href = mailtoLink;
+        } catch (mailErr) {
+          console.log('Mailto fallback failed:', mailErr);
+        }
+      } finally {
+        // Always show the success state so the visitor knows we received it
         consultForm.style.display = 'none';
-        document.getElementById('form-success').classList.add('active');
-
-        // Also try mailto fallback
-        const mailtoLink = `mailto:migueleeaurora@gmail.com?subject=Aurora Bridge Inquiry from ${encodeURIComponent(formData.name)}&body=Name: ${encodeURIComponent(formData.name)}%0D%0AEmail: ${encodeURIComponent(formData.email)}%0D%0APhone: ${encodeURIComponent(formData.phone)}%0D%0AProduct: ${encodeURIComponent(formData.product)}%0D%0AStatus: ${encodeURIComponent(formData.status)}%0D%0AMessage: ${encodeURIComponent(formData.message)}`;
-        window.open(mailtoLink, '_blank');
+        const successEl = document.getElementById('form-success');
+        if (successEl) successEl.classList.add('active');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
       }
-
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
     });
   }
 
@@ -391,9 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const product = getProductById(productId);
 
     if (product) {
-      renderProductDetail(product, currentLang);
+      renderProductDetail(product, currentLanguage());
       // Update page title
-      document.title = `${product.name[currentLang]} — Aurora Bridge`;
+      document.title = `${product.name[currentLanguage()]} — Aurora Bridge`;
     }
   }
 
@@ -416,3 +409,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 });
+
+
+/* ============================================================
+   Aurora Canvas Background
+   Kept in its own function so that a failure here can never
+   abort the rest of the page initialisation.
+   ============================================================ */
+/* ============================================================
+   Aurora Canvas Background (Hero Section)
+   Kept in its own function so that a failure here can never
+   abort the rest of the page initialisation.
+   ============================================================ */
+function initAuroraCanvas(canvas) {
+  const ctx = typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
+  if (!ctx) {
+    canvas.style.display = 'none';
+    return;
+  }
+
+  let width, height;
+  let time = 0;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Aurora gradients — multiple flowing color bands
+  const auroraLayers = [
+    { hue: 200, speed: 0.0003, amplitude: 0.3, yBase: 0.25, opacity: 0.15 },
+    { hue: 260, speed: 0.0004, amplitude: 0.25, yBase: 0.35, opacity: 0.12 },
+    { hue: 180, speed: 0.0005, amplitude: 0.2, yBase: 0.45, opacity: 0.10 },
+    { hue: 220, speed: 0.00035, amplitude: 0.28, yBase: 0.55, opacity: 0.08 },
+  ];
+
+  function draw() {
+    time += 1;
+    ctx.clearRect(0, 0, width, height);
+
+    // Deep base
+    const baseGrad = ctx.createLinearGradient(0, 0, 0, height);
+    baseGrad.addColorStop(0, '#0A1628');
+    baseGrad.addColorStop(0.5, '#0F2440');
+    baseGrad.addColorStop(1, '#0A1628');
+    ctx.fillStyle = baseGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    // Aurora layers
+    auroraLayers.forEach(layer => {
+      ctx.save();
+      ctx.globalAlpha = layer.opacity;
+
+      for (let x = 0; x < width; x += 2) {
+        const y = height * layer.yBase +
+          Math.sin(x * 0.003 + time * layer.speed) * height * layer.amplitude +
+          Math.sin(x * 0.007 + time * layer.speed * 1.5) * height * layer.amplitude * 0.5 +
+          Math.sin(x * 0.012 + time * layer.speed * 2) * height * layer.amplitude * 0.3;
+
+        const grad = ctx.createLinearGradient(x, y - 80, x, y + 80);
+        grad.addColorStop(0, `hsla(${layer.hue}, 80%, 60%, 0)`);
+        grad.addColorStop(0.5, `hsla(${layer.hue}, 80%, 60%, 0.6)`);
+        grad.addColorStop(1, `hsla(${layer.hue}, 80%, 60%, 0)`);
+
+        ctx.fillStyle = grad;
+        ctx.fillRect(x, y - 80, 2, 160);
+      }
+
+      ctx.restore();
+    });
+
+    // Subtle particles
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+    for (let i = 0; i < 30; i++) {
+      const px = ((Math.sin(i * 37.5 + time * 0.002) + 1) / 2) * width;
+      const py = ((Math.cos(i * 53.7 + time * 0.003) + 1) / 2) * height;
+      ctx.beginPath();
+      ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}

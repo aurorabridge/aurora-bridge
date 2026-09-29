@@ -54,22 +54,22 @@
         <form id="consult-form">
           <div class="form-group">
             <label data-i18n="form.name">姓名 <span>*</span></label>
-            <input type="text" id="form-name" class="form-input" data-i18n-placeholder="form.name.placeholder" placeholder="请输入你的姓名" required>
+            <input type="text" id="form-name" name="name" class="form-input" data-i18n-placeholder="form.name.placeholder" placeholder="请输入你的姓名" required>
           </div>
 
           <div class="form-group">
             <label data-i18n="form.email">邮箱 <span>*</span></label>
-            <input type="email" id="form-email" class="form-input" data-i18n-placeholder="form.email.placeholder" placeholder="请输入你的邮箱地址" required>
+            <input type="email" id="form-email" name="email" class="form-input" data-i18n-placeholder="form.email.placeholder" placeholder="请输入你的邮箱地址" required>
           </div>
 
           <div class="form-group">
             <label data-i18n="form.phone">手机号（选填）</label>
-            <input type="tel" id="form-phone" class="form-input" data-i18n-placeholder="form.phone.placeholder" placeholder="+86 或 +1 开头的手机号">
+            <input type="tel" id="form-phone" name="phone" class="form-input" data-i18n-placeholder="form.phone.placeholder" placeholder="+86 或 +1 开头的手机号">
           </div>
 
           <div class="form-group">
             <label data-i18n="form.product">意向产品 <span>*</span></label>
-            <select id="form-product" class="form-select" required>
+            <select id="form-product" name="product" class="form-select" required>
               <option value="" data-i18n="form.product.placeholder">请选择你感兴趣的产品</option>
               <option value="starter-bundle" data-i18n="form.product.starter">零基础入门包（Starter）</option>
               <option value="pro-report" data-i18n="form.product.pro">顾问评估报告 + 简历模板（Pro）</option>
@@ -79,7 +79,7 @@
 
           <div class="form-group">
             <label data-i18n="form.status">当前状态 <span>*</span></label>
-            <select id="form-status" class="form-select" data-i18n-placeholder="form.status.placeholder" required>
+            <select id="form-status" name="status" class="form-select" data-i18n-placeholder="form.status.placeholder" required>
               <option value="" data-i18n="form.status.placeholder">请选择你的当前状态</option>
               <option value="student" data-i18n="form.status.student">在校学生</option>
               <option value="graduate" data-i18n="form.status.graduate">已毕业（1年内）</option>
@@ -90,7 +90,7 @@
 
           <div class="form-group">
             <label data-i18n="form.message">留言</label>
-            <textarea id="form-message" class="form-textarea" data-i18n-placeholder="form.message.placeholder" placeholder="请简要说明你的情况、目标和疑问（选填）"></textarea>
+            <textarea id="form-message" name="message" class="form-textarea" data-i18n-placeholder="form.message.placeholder" placeholder="请简要说明你的情况、目标和疑问（选填）"></textarea>
           </div>
 
           <button type="submit" class="form-submit" data-i18n="form.submit">提交咨询</button>

@@ -92,15 +92,24 @@ function switchTab(tab) {
       });
     }
   } else if (tab === 'consult') {
+    // NOTE: keep these as plain variables — embedding apostrophes directly
+    // inside the template expression below breaks the template literal parse.
+    const introText = lang === 'zh'
+      ? '你好！我是 Aurora Bridge 的 AI 助手。以下是咨询 Miguel 的几种方式：'
+      : "Hi! I'm Aurora Bridge AI assistant. Here are ways to reach Miguel:";
+    const optForm = lang === 'zh' ? '📝 填写咨询表单（24h内回复）' : '📝 Fill consultation form (24h response)';
+    const optMail = lang === 'zh' ? '📧 发送邮件直接联系' : '📧 Send email directly';
+    const optSocial = lang === 'zh' ? '📱 查看微信/小红书/抖音' : '📱 View WeChat/RED/TikTok';
+    const optSearch = lang === 'zh' ? '🔍 先在知识库里找答案' : '🔍 Search knowledge base first';
     body.innerHTML = `
       <div class="ai-messages">
-        <div class="ai-msg bot">${lang === 'zh' ? '你好！我是 Aurora Bridge 的 AI 助手。以下是咨询 Miguel 的几种方式：' : 'Hi! I\\'m Aurora Bridge AI assistant. Here are ways to reach Miguel:'}</div>
+        <div class="ai-msg bot">${introText}</div>
       </div>
       <div class="ai-choices">
-        <button class="ai-choice-btn" onclick="window.location.href='consult.html'">${lang === 'zh' ? '📝 填写咨询表单（24h内回复）' : '📝 Fill consultation form (24h response)'}</button>
-        <button class="ai-choice-btn" onclick="window.open('mailto:migueleeaurora@gmail.com')">${lang === 'zh' ? '📧 发送邮件直接联系' : '📧 Send email directly'}</button>
-        <button class="ai-choice-btn" onclick="window.location.href='contact.html'">${lang === 'zh' ? '📱 查看微信/小红书/抖音' : '📱 View WeChat/RED/TikTok'}</button>
-        <button class="ai-choice-btn" onclick="switchTab('search')">${lang === 'zh' ? '🔍 先在知识库里找答案' : '🔍 Search knowledge base first'}</button>
+        <button class="ai-choice-btn" onclick="window.location.href='consult.html'">${optForm}</button>
+        <button class="ai-choice-btn" onclick="window.open('mailto:migueleeaurora@gmail.com')">${optMail}</button>
+        <button class="ai-choice-btn" onclick="window.location.href='contact.html'">${optSocial}</button>
+        <button class="ai-choice-btn" onclick="switchTab('search')">${optSearch}</button>
       </div>
     `;
   } else if (tab === 'picker') {
