@@ -130,11 +130,12 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Render product grid
       const grid = document.getElementById('product-grid');
-      const lang = currentLang || 'zh';
-      grid.innerHTML = products.map(p => renderProductCard(p, lang)).join('');
+      const lang = (typeof currentLang !== 'undefined' && currentLang) || localStorage.getItem('aurora-lang') || 'zh';
+      if (grid) grid.innerHTML = products.map(p => renderProductCard(p, lang)).join('');
 
       // Render comparison tiers
       const comparisonContainer = document.getElementById('comparison-tiers');
+      if (!comparisonContainer) return;
       comparisonContainer.innerHTML = products.map(p => `
         <div class="tier-card ${p.featured ? 'featured' : ''} animate-on-scroll">
           <span class="tier-badge ${p.tier}">${p.tier === 'starter' ? '入门 Starter' : p.tier === 'pro' ? '进阶 Pro' : '尊享 Premium'}</span>
@@ -151,15 +152,18 @@
         </div>
       `).join('');
 
-      // Re-init scroll observers
-      document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-          });
-        }, { threshold: 0.15 });
-        observer.observe(el);
-      });
+      // Re-init scroll observers (guard against browsers without IntersectionObserver)
+      if (typeof IntersectionObserver === 'function') {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+          }, { threshold: 0.15 });
+          observer.observe(el);
+        });
+      }
+      if (window.revealInView) window.revealInView();
     });
   </script>
 </body>

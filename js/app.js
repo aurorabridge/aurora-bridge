@@ -22,15 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // opacity:0 forever. This rect-based pass guarantees anything inside the
   // viewport is always revealed.
   // =========================================
+  // NOTE: some browsers (older WebViews, in-app browsers) do not provide
+  // IntersectionObserver at all. Calling `new IntersectionObserver()` there
+  // throws and would abort every remaining step of this init block.
+  const supportsIO = typeof window.IntersectionObserver === 'function';
+
   const revealSelector = '.animate-on-scroll, .reveal-up, .reveal-left, .reveal-right, .reveal-scale';
 
   window.revealInView = function revealInView() {
+    const vh = window.innerHeight || document.documentElement.clientHeight || 800;
     document.querySelectorAll(revealSelector).forEach(el => {
       if (el.classList.contains('visible')) return;
       const rect = el.getBoundingClientRect();
-      // Ignore elements that are not rendered yet
-      if (rect.width === 0 && rect.height === 0) return;
-      if (rect.top < window.innerHeight - 40 && rect.bottom > 0) {
+      // Ignore elements that have not been laid out yet
+      if (!rect.width && !rect.height) return;
+      const entering = rect.top < vh - 40 && rect.bottom > 0;
+      // Anything already scrolled past should stay visible too
+      const scrolledPast = rect.bottom <= 0;
+      if (entering || scrolledPast) {
         el.classList.add('visible');
       }
     });
@@ -159,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // V2 — Scroll-Driven Reveal Observer
   // =========================================
   const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
-  if (revealElements.length > 0) {
+  if (revealElements.length > 0 && supportsIO) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -175,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-  if (animatedElements.length > 0) {
+  if (animatedElements.length > 0 && supportsIO) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -195,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================
   const counters = document.querySelectorAll('.about-stat-number');
 
-  if (counters.length > 0) {
+  if (counters.length > 0 && supportsIO) {
     const countObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
